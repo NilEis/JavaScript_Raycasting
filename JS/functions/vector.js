@@ -1,6 +1,5 @@
 /**
- * Die Klasse stellt funktionen zum besseren speichern der Position und Geschwindigkeit eines Objects zur verfügung
- * @file Stellt die Klassen {@link vector2D} un {@link vector3D} zur verfügung
+ * @file Stellt die Klassen {@link vector2D} und {@link vector3D} zur verfügung
  * @example
  * let location2D = new vector2D(x, y);
  * let location3D = new vector3D(x, y, z);

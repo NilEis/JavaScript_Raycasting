@@ -5,7 +5,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: functions/Mouse.js</title>
+    <title>JSDoc: Raycasting/emitter.js</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -54,7 +54,7 @@
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
                         <p>Source</p>
-                        <h1>functions/Mouse.js</h1>
+                        <h1>Raycasting/emitter.js</h1>
                     </header>
                     
                     
@@ -65,55 +65,97 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Stellt Funktionen zum Zugriff auf die Maus zur verfügung
- * @module mouse.js
- */
-
-/**
- * @var mouseX Die x-Position der Maus 
- * @type {number}
- */
-var mouseX = 0;
-
-/**
- * @var mouseY Die y-Position der Maus
- * @type {number}
- */
-var mouseY = 0;
-
-
-var pMX;
-var pMY;
-/**
- * @var mouseDown Die Variabel speichert, ob eine der Maustasten gedrückt ist
- * @type {boolean}
+ * @file stellt eine Emitterklasse / Spielerklasse zur verfügung
  * @example
- * if(mouseDown)
- *      console.log("Eine Maustaste wurde gedrückt");
- * else
- *      console.log("Es wurde keine Taste gedrückt");
- * //Kürzer:
- * console.log(mouseDown ? "Eine Maustaste wurde gedrückt" : "Es wurde keine Taste gedrückt")
+ * const player = new emitter(100,100,45);
  */
-var mouseDown = 0;
-document.body.onmousedown = function () {
-    pMX = mouseX;
-    pMY = mouseY;
-    mouseDown = 1;
-}
-document.body.onmouseup = function () {
-    if (mouseX > 0 &amp;&amp; mouseX &lt; c.width &amp;&amp; mouseY > 0 &amp;&amp; mouseY &lt; c.height) {
-        px = mouseX;
-        py = mouseY;
+class emitter {
+    /**
+     * Erzeugt ein Objekt der Klasse emitter an den gegebenen Koordinaten mit einem Sichtfeld des gegebenen Winkels
+     * @param {number} x Die x-Startposition
+     * @param {number} y Die y-Startposition
+     * @param {number} fov Das Sichtfeld in Grad
+     */
+    constructor(x, y, fov) {
+        this.pos = new vector2D(x, y);
+        this.fov = fov;
+        this.rays = [];
+        this.o = 0;
+        this.dir = vector2D.fromAngle(this.o);
     }
-    mouseDown = 0;
-}
-//Die Funktion wird ausgeführt wenn die Maus bewegt wird.
-function updateMouse(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-    _emitter.pos.x = mouseX;
-    _emitter.pos.y = mouseY;
+
+    /**
+     * Erzeugt / Aktualisiert die Sichtrays
+     */
+    setRays() {
+        this.rays = [];
+        for (let i = -this.fov / 2; i &lt; this.fov / 2; i += 1) {
+            this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
+        }
+    }
+
+    /**
+     * Erzeugt einen neuen {@link vector2D|Richtungsvektor} mit der gegebenen Steigung
+     * @param {number} a Der Winkel in Grad
+     */
+    setDir(a) {
+        this.dir = vector2D.fromAngle(a);
+    }
+
+    /**
+     * Zeichnet alles
+     */
+    draw() {
+        this.setRays();
+        c.fillCircle(this.pos.x, this.pos.y, 1, "white");
+        for (let i = 0; i &lt; this.rays.length; i++) {
+            this.rays[i].draw();
+            let closest = null;
+            let cDist = Infinity;
+            let cColorR = 255;
+            let cColorG = 255;
+            let cColorB = 255;
+            let cImg = undefined;
+            let cR;
+            for (let j = 0; j &lt; walls.length; j++) {
+                const p = this.rays[i].collide(walls[j]);
+                if (p) {
+                    const _dist = euclideanDistance(this.pos.x, this.pos.y, p.x, p.y);
+                    if (_dist &lt; cDist) {
+                        cDist = _dist;
+                        closest = p.get();
+                        cColorR = walls[j].r;
+                        cColorG = walls[j].g;
+                        cColorB = walls[j].b;
+                        cImg = walls[j].img;
+                        let c1 = mapValue(p.x, walls[j].start.x, walls[j].end.x, 0, 1);
+                        let c2 = mapValue(p.y, walls[j].start.y, walls[j].end.y, 0, 1);
+                        cR = c1 ? c1 : c2;
+                    }
+                }
+                //c.fillCircle(p.x,p.y,6,"white");
+            }
+            if (closest) {
+                c.line(this.pos.x, this.pos.y, closest.x, closest.y, "white");
+                const a = Math.atan2(this.rays[i].dir.y, this.rays[i].dir.x) - Math.atan2(this.dir.y, this.dir.x);
+                cDist *= Math.cos(a);
+                const color = mapValue(cDist ** 2, 0, 512 ** 2, 1, 0);
+                const h = clamp(mapValue(cDist * 2, 512 * 2, 0, 0, 512),0,512);
+                const w = 512 / this.rays.length;
+                if (!cImg)
+                    c.fillRect(i * w + 512, 512 / 2 - h / 2, w, h, "rgb(" + color * cColorR + "," + color * cColorG + "," + color * cColorB + ")");
+                if (cImg) {
+                    const iX = Math.round(cR * cImg.width);
+                    const iY = Math.round(0);
+                    const iW = Math.round(cImg.width / this.rays.length);
+                    const iH = Math.round(cImg.height);
+                    const _X = Math.round(i * w + 512);
+                    const _Y = Math.round(512 / 2 - h / 2);
+                    c.drawSprite(cImg, iX, iY, iW, iH, _X, _Y, w, h);
+                }
+            }
+        }
+    }
 }</code></pre>
         </article>
     </section>

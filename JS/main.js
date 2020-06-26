@@ -33,29 +33,25 @@ detectSwipe("canvas", (el, direction) => {
 //Leere die Konsole um einen besseren Überblick in dieser zu bekommen
 console.clear();
 
+/**
+ * @var {number} tickIntervall Die Variabel in der der Intervall gespeichert wird
+ */
 var tickIntervall;
 
+/**
+ * @var {emitter} _emitter Wird als Emitter/ Spieler in {@link init} initialisiert
+ */
 var _emitter;
+
+/**
+ * @var {wall[]} walls Das Array, in dem die Wände gespeichert werden
+ */
 var walls = [];
 
-const mapX = 8;
-
-const mapY = 8;
-
-const mapS = 64;
-
+/**
+ * @constant {number}
+ Der Abstand zwischen der äußeren und der inneren Wand */
 const rand = 25;
-
-const map = [
-    1, 1, 1, 1, 1, 1, 1, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 1, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 1, 1, 1, 1, 1, 1, 1
-];
 
 /**
  * Setzt alles in den Startzustand

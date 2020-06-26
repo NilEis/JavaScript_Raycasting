@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: array.js</title>
+    <title>JSDoc: ray</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -51,8 +51,8 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Module</p>
-                        <h1>array.js</h1>
+                        <p>Class</p>
+                        <h1>ray</h1>
                     </header>
                     
                     
@@ -64,107 +64,34 @@
 
 <header>
     
+        <h2><span class="attribs"><span class="type-signature"></span></span>ray<span class="signature">(x, y, a, color<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        
+    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-            <div class="description">Stellt Funktionen zum bearbeiten und zugreifen auf Arrays zur verfügung</div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
-            <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line1">line 1</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-        
-    
-    </div>
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class='vertical-section'>
-            <h3 class="title"><span>Methods</span></h3>
-            <div class="members">
-            
-                <div class="member">
+            <div class='vertical-section'>
+                <h3 class="title"><span>Constructor</span></h3>
+                <div class="members">
+                    <div class="member">
 
 
     
-    <h4 class="name" id="~arrayClone">
-        <a class="href-link" href="#~arrayClone">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
+    <h4 class="name" id="ray">
+        <a class="href-link" href="#ray">#</a>
         
         <span class="code-name">
             
-                arrayClone<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array}</span>
+                new ray<span class="signature">(x, y, a, color<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
             
         </span>
     </h4>
     
 
     
-    
-    <div class="description">
-        Die Funktion kopiert ein n-Dimensionales Array
-    </div>
     
 
 
@@ -188,7 +115,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -201,23 +132,150 @@
         
 <tr class="deep-level-0">
   
-      <td class="name"><code>arr</code></td>
+      <td class="name"><code>x</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Array</span>
+<span class="param-type">number</span>
 
 
   
   </td>
 
   
+      <td class="attributes">
+      
 
+      
+
+      
+      </td>
   
 
-  <td class="description last">Das zu kopierende n-Dimensionale Array</td>
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last">Die x-Startposition</td>
+</tr>
+
+
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>y</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">number</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last">Die y-Startposition</td>
+</tr>
+
+
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>a</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">number</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last">Der Steigungswinkel in Grad</td>
+</tr>
+
+
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>color</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">string</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          "white"
+      
+      </td>
+  
+
+  <td class="description last">Die Farbe des Rays</td>
 </tr>
 
 
@@ -262,9 +320,180 @@
 
     
         <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
+            <a href="Raycasting_ray.js.html" class="button">View Source</a>
             <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line10">line 10</a>
+                <a href="Raycasting_ray.js.html">Raycasting/ray.js</a>, <a href="Raycasting_ray.js.html#line14">line 14</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h3 class="title"><span>Methods</span></h3>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="collide">
+        <a class="href-link" href="#collide">#</a>
+        
+        <span class="code-name">
+            
+                collide<span class="signature">(pWall)</span><span class="type-signature"> &rarr; {boolean|<a href="vector2D.html">vector2D</a>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Testet ob der Ray mit einer Wand kollidiert
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>pWall</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type"><a href="wall.html">wall</a></span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">Die zu testende Wand</td>
+</tr>
+
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="Raycasting_ray.js.html" class="button">View Source</a>
+            <span>
+                <a href="Raycasting_ray.js.html">Raycasting/ray.js</a>, <a href="Raycasting_ray.js.html#line46">line 46</a>
             </span>
         </p>
     
@@ -295,13 +524,16 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'>Das kopierte Array</div>
+    <div class='param-desc column is-7'>wenn ein Schnittpunkt gefunden werden konnte wird dieser zurückgegeben, ansonsten wird false zurückgegeben.</div>
     
     
     <div class='column is-5 has-text-left'>
         <label>Type: </label>
         
-<span class="param-type">Array</span>
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type"><a href="vector2D.html">vector2D</a></span>
 
 
     </div>
@@ -321,16 +553,12 @@
 
 
     
-    <h4 class="name" id="~findCell">
-        <a class="href-link" href="#~findCell">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
+    <h4 class="name" id="draw">
+        <a class="href-link" href="#draw">#</a>
         
         <span class="code-name">
             
-                findCell<span class="signature">(pGrid, pX, pY, i)</span><span class="type-signature"></span>
+                draw<span class="signature">()</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -339,7 +567,7 @@
     
     
     <div class="description">
-        Findet die nächste Zelle die nicht i enthählt
+        Zeichnet den Ray
     </div>
     
 
@@ -350,131 +578,6 @@
 
 
 
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>pGrid</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Array.&lt;Array.&lt;Array>></span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Das zu durchsuchende Array</td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>pX</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Die x-Startposition</td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>pY</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Die y-Startposition</td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>i</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">*</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Das zu vermeidende Zeichen</td>
-</tr>
-
-
-    
-    </tbody>
-</table>
 
 
 
@@ -513,9 +616,9 @@
 
     
         <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
+            <a href="Raycasting_ray.js.html" class="button">View Source</a>
             <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line44">line 44</a>
+                <a href="Raycasting_ray.js.html">Raycasting/ray.js</a>, <a href="Raycasting_ray.js.html#line24">line 24</a>
             </span>
         </p>
     
@@ -547,16 +650,12 @@
 
 
     
-    <h4 class="name" id="~generateArray">
-        <a class="href-link" href="#~generateArray">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
+    <h4 class="name" id="lookAt">
+        <a class="href-link" href="#lookAt">#</a>
         
         <span class="code-name">
             
-                generateArray<span class="signature">(w, h, c)</span><span class="type-signature"></span>
+                lookAt<span class="signature">(x, y)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -565,365 +664,7 @@
     
     
     <div class="description">
-        Erzeugt ein 2D-Array
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>w</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Die Breite des Arrays</td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>h</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Die Höhe des Arrays</td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>c</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-|
-
-<span class="param-type">char</span>
-|
-
-<span class="param-type">string</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Das Zeichen mit dem es initialisiert werden soll</td>
-</tr>
-
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
-            <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line91">line 91</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="~shuffle">
-        <a class="href-link" href="#~shuffle">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
-        
-        <span class="code-name">
-            
-                shuffle<span class="signature">(arra1)</span><span class="type-signature"></span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        Die methode mischt ein Array
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>arra1</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Array</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Das zu mischende Array</td>
-</tr>
-
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
-            <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line63">line 63</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="~xyToI">
-        <a class="href-link" href="#~xyToI">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
-        
-        <span class="code-name">
-            
-                xyToI<span class="signature">(x, y, width)</span><span class="type-signature"> &rarr; {number}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        Berechnet aus x/y Koordinaten den Index für ein 1-Dimensionales Array
+        Ändert die Richtung des Rays so, dass dieser auf die gegebenen Koordinaten zeigt
     </div>
     
 
@@ -977,7 +718,7 @@
 
   
 
-  <td class="description last"></td>
+  <td class="description last">Die x-Zielposition</td>
 </tr>
 
 
@@ -1002,32 +743,7 @@
 
   
 
-  <td class="description last"></td>
-</tr>
-
-
-    
-
-        
-<tr class="deep-level-0">
-  
-      <td class="name"><code>width</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">Die breite jeder Zeile</td>
+  <td class="description last">Die y-Zielposition</td>
 </tr>
 
 
@@ -1072,9 +788,9 @@
 
     
         <p class="tag-source">
-            <a href="functions_Array.js.html" class="button">View Source</a>
+            <a href="Raycasting_ray.js.html" class="button">View Source</a>
             <span>
-                <a href="functions_Array.js.html">functions/Array.js</a>, <a href="functions_Array.js.html#line33">line 33</a>
+                <a href="Raycasting_ray.js.html">Raycasting/ray.js</a>, <a href="Raycasting_ray.js.html#line35">line 35</a>
             </span>
         </p>
     
@@ -1096,31 +812,6 @@
 
 
 
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>Der Index</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">number</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
 
 
 

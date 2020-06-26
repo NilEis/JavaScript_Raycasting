@@ -77,7 +77,7 @@ class canvasClass {
     get shapeList() {
         return this.listSh;
     }
-
+    
     get rows() {
         return this._rows;
     }

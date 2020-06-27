@@ -24,7 +24,7 @@ class emitter {
      */
     setRays() {
         this.rays = [];
-        for (let i = -this.fov / 2; i < this.fov / 2; i += 1) {
+        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.8) {
             this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
         }
     }
@@ -80,12 +80,12 @@ class emitter {
                 if (!cImg)
                     c.fillRect(i * w + 512, 512 / 2 - h / 2, w, h, "rgb(" + color * cColorR + "," + color * cColorG + "," + color * cColorB + ")");
                 if (cImg) {
-                    const iX = Math.round(cR * cImg.width);
-                    const iY = Math.round(0);
-                    const iW = Math.round(cImg.width / this.rays.length);
-                    const iH = Math.round(cImg.height);
-                    const _X = Math.round(i * w + 512);
-                    const _Y = Math.round(512 / 2 - h / 2);
+                    const iX = cR * cImg.width;
+                    const iY = 0;
+                    const iW = cImg.width / this.rays.length;
+                    const iH = cImg.height;
+                    const _X = i * w + 512;
+                    const _Y = 512 / 2 - h / 2;
                     c.drawSprite(cImg, iX, iY, iW, iH, _X, _Y, w, h);
                 }
             }

@@ -61,7 +61,7 @@ function init() {
     walls = [];
     setBounds();
     clearInterval(tickIntervall);
-    addTextRect(rand, rand, WIDTH / 2 - 2 * rand, HEIGHT - 2 * rand, 25, 160, 50, "Textures\\test1.png");
+    addTextRect(rand, rand, WIDTH / 2 - 2 * rand, HEIGHT - 2 * rand, 25, 160, 50, "Textures\\uvCheck.jpg");
     /*for (let i = 0; i < 5; i++) {
         const x = random.getRandomInt(0, 512);
         const y = random.getRandomInt(0, 512);
@@ -71,7 +71,7 @@ function init() {
     }*/
     addRect(100, 100, 100, 100, 156, 321, 35);
     addRect(350, 300, 100, 150, 12, 15, 200);
-    //walls.push(new wall(300, 200, 200, 200));
+    walls.push(new wall(300, 200, 200, 200,0,0,0,"Textures\\uvCheck.jpg"));
     //walls.push(new wall(30, 15, 300, 100));
     //walls.push(new wall(350, 15, 25, 400));
     //walls.push(new wall(500, 150, 400, 10));

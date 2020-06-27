@@ -59,14 +59,18 @@ function addTextRect(x, y, w, h, r, g, b, imgSrc) {
  * Die Funktion, die die Tasteneingaben verarbeitet
  */
 function buttons() {
-    const v = 5;
+    const v = _emitter.v;
     const vT = 5;
     switch (key) {
         case "up":
             _emitter.pos.add(vector2D.mul(_emitter.dir, v));
+            if (_emitter.checkCollision())
+                _emitter.pos.add(vector2D.mul(_emitter.dir, -v));
             break;
         case "down":
             _emitter.pos.sub(vector2D.mul(_emitter.dir, v));
+            if (_emitter.checkCollision())
+                _emitter.pos.sub(vector2D.mul(_emitter.dir, -v));
             break;
         case "left":
             _emitter.o -= vT;

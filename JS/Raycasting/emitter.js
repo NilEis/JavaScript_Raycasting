@@ -16,6 +16,7 @@ class emitter {
         this.rays = [];
         this.o = 0;
         this.dir = vector2D.fromAngle(this.o);
+        this.v = 5;
     }
 
     /**
@@ -74,7 +75,7 @@ class emitter {
                 const a = Math.atan2(this.rays[i].dir.y, this.rays[i].dir.x) - Math.atan2(this.dir.y, this.dir.x);
                 cDist *= Math.cos(a);
                 const color = mapValue(cDist ** 2, 0, 512 ** 2, 1, 0);
-                const h = clamp(mapValue(cDist * 2, 512 * 2, 0, 0, 512),0,512);
+                const h = clamp(mapValue(cDist * 2, 512 * 2, 0, 0, 512), 0, 512);
                 const w = 512 / this.rays.length;
                 if (!cImg)
                     c.fillRect(i * w + 512, 512 / 2 - h / 2, w, h, "rgb(" + color * cColorR + "," + color * cColorG + "," + color * cColorB + ")");
@@ -89,5 +90,19 @@ class emitter {
                 }
             }
         }
+    }
+
+    /**
+     * Testet ob das Objekt mit einer Wand kollidiert
+     * @return {boolean}
+     */
+    checkCollision() {
+        for (let i = 0; i < walls.length; i++) {
+            const d1 = euclideanDistance(this.pos.x, this.pos.y, walls[i].start.x, walls[i].start.y);
+            const d2 = euclideanDistance(this.pos.x, this.pos.y, walls[i].end.x, walls[i].end.y);
+            if (d1 + d2 >= walls[i].len - this.v && d1 + d2 <= walls[i].len + this.v)
+                return true;
+        }
+        return false;
     }
 }

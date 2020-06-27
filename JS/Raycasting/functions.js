@@ -61,10 +61,10 @@ function addTextRect(x, y, w, h, r, g, b, imgSrc) {
 function buttons() {
     const v = _emitter.v;
     const vT = 5;
+    const dir = vector2D.mul(_emitter.dir, v);
     switch (key) {
         case "up":
             //_emitter.pos.add(vector2D.mul(_emitter.dir, v));
-            const dir = vector2D.mul(_emitter.dir, v);
             _emitter.pos.x += dir.x;
             if (_emitter.checkCollision())
                 _emitter.pos.x -= dir.x;
@@ -74,7 +74,6 @@ function buttons() {
             break;
         case "down":
             //_emitter.pos.sub(vector2D.mul(_emitter.dir, v));
-            const dir = vector2D.mul(_emitter.dir, v);
             _emitter.pos.x -= dir.x;
             if (_emitter.checkCollision())
                 _emitter.pos.x += dir.x;

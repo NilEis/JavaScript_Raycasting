@@ -31,7 +31,7 @@ detectSwipe("canvas", (el, direction) => {
 });
 
 //Leere die Konsole um einen besseren Überblick in dieser zu bekommen
-console.clear();
+//console.clear();
 
 /**
  * @var {number} tickIntervall Die Variabel in der der Intervall gespeichert wird

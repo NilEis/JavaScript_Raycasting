@@ -207,7 +207,7 @@ class canvasClass {
      * @param {number} h Die Höhe auf die es gestreckt werden soll.
      */
     drawSprite(img, ix, iy, iw, ih, x, y, w, h) {
-        this.ctx.drawImage(img, ix, iy, ih, iw, x, y, w, h);
+        this.ctx.drawImage(img, ix, iy, iw, ih, x, y, w, h);
     }
 
     /**

@@ -61,7 +61,7 @@ function init() {
     walls = [];
     setBounds();
     clearInterval(tickIntervall);
-    addRect(rand, rand, WIDTH / 2 - 2 * rand, HEIGHT - 2 * rand, 25, 160, 50);
+    addTextRect(rand, rand, WIDTH / 2 - 2 * rand, HEIGHT - 2 * rand, 25, 160, 50, "Textures\\test1.png");
     /*for (let i = 0; i < 5; i++) {
         const x = random.getRandomInt(0, 512);
         const y = random.getRandomInt(0, 512);

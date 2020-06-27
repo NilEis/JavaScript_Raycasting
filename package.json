@@ -17,6 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/NilEis/JavaScript_Raycasting.git"
   },
+"scripts": {
+    "docs": "jsdoc2md JS/main.js > md/main.md"
+  },
   "author": "Nils Eisenach",
   "license": "MIT",
   "bugs": {

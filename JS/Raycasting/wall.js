@@ -25,6 +25,7 @@ class wall {
             this.img = new Image();
             this.img.src = img;
         }
+        this.mag = euclideanDistance(x1,y1,x2,y2);
     }
 
     /**

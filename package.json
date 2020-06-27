@@ -10,7 +10,9 @@
     "better-docs": "^1.4.7",
     "jsdoc": "^3.6.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jsdoc-to-markdown": "^6.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NilEis/JavaScript_Raycasting.git"

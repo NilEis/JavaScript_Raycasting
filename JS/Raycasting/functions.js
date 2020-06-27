@@ -63,14 +63,24 @@ function buttons() {
     const vT = 5;
     switch (key) {
         case "up":
-            _emitter.pos.add(vector2D.mul(_emitter.dir, v));
+            //_emitter.pos.add(vector2D.mul(_emitter.dir, v));
+            const dir = vector2D.mul(_emitter.dir, v);
+            _emitter.pos.x += dir.x;
             if (_emitter.checkCollision())
-                _emitter.pos.add(vector2D.mul(_emitter.dir, -v));
+                _emitter.pos.x -= dir.x;
+            _emitter.pos.y += dir.y;
+            if (_emitter.checkCollision())
+                _emitter.pos.y -= dir.y;
             break;
         case "down":
-            _emitter.pos.sub(vector2D.mul(_emitter.dir, v));
+            //_emitter.pos.sub(vector2D.mul(_emitter.dir, v));
+            const dir = vector2D.mul(_emitter.dir, v);
+            _emitter.pos.x -= dir.x;
             if (_emitter.checkCollision())
-                _emitter.pos.sub(vector2D.mul(_emitter.dir, -v));
+                _emitter.pos.x += dir.x;
+            _emitter.pos.y -= dir.y;
+            if (_emitter.checkCollision())
+                _emitter.pos.y += dir.y;
             break;
         case "left":
             _emitter.o -= vT;

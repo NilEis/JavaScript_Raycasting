@@ -98,9 +98,10 @@ class emitter {
      */
     checkCollision() {
         for (let i = 0; i < walls.length; i++) {
-            const d1 = euclideanDistance(this.pos.x, this.pos.y, walls[i].start.x, walls[i].start.y);
-            const d2 = euclideanDistance(this.pos.x, this.pos.y, walls[i].end.x, walls[i].end.y);
-            if (d1 + d2 >= walls[i].len - this.v && d1 + d2 <= walls[i].len + this.v)
+            let d1 = euclideanDistance(this.pos.x, this.pos.y, walls[i].start.x, walls[i].start.y);
+            let d2 = euclideanDistance(this.pos.x, this.pos.y, walls[i].end.x, walls[i].end.y);
+
+            if (d1 + d2 >= walls[i].mag - 0.1 && d1 + d2 <= walls[i].mag + 0.1)
                 return true;
         }
         return false;

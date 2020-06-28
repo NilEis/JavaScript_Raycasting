@@ -24,7 +24,7 @@ class emitter {
      */
     setRays() {
         this.rays = [];
-        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.8) {
+        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.2) {
             this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
         }
     }

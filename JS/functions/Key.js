@@ -19,6 +19,10 @@ document.onkeydown = function (event) {
         init();
 }
 
+document.onkeyup = function(event){
+    key = "";
+}
+
 
 /**
  * Die Methode erkennt Swipe-Bewegungen. Quelle: {@link https://stackoverflow.com/a/58719294}

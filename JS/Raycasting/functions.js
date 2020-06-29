@@ -90,5 +90,4 @@ function buttons() {
             _emitter.setDir(_emitter.o);
             break;
     }
-    key = "";
 }

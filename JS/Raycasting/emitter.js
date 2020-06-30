@@ -52,7 +52,6 @@ class emitter {
     checkCollision() {
         const x = Math.floor(this.pos.x/sizeTX);
         const y = Math.floor(this.pos.y/sizeTY);
-        console.log(y*sizeX+x);
         return map[y*sizeX+x] == 1 ? true : false;
     }
 }

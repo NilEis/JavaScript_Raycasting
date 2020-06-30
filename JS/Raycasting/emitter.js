@@ -24,7 +24,7 @@ class emitter {
      */
     setRays() {
         this.rays = [];
-        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.5) {
+        for (let i = -this.fov / 2; i < this.fov / 2; i += 1) {
             this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
         }
     }
@@ -45,13 +45,28 @@ class emitter {
         c.fillCircle(this.pos.x, this.pos.y, 1, "white");
         for (let i = 0; i < this.rays.length; i++) {
             this.rays[i].draw();
-
+            const rayPos = this.rays[i].dir.get();
+            const pPos = this.pos.get();
+            let x = Math.floor(this.pos.x / sizeTX);
+            let y = Math.floor(this.pos.y / sizeTY);
+            let tmp = pPos.get();
+            for (let j = 1; map[y * sizeX + x] == 0; j++) {
+                tmp.add(rayPos);
+                x = Math.floor(tmp.x / sizeTX);
+                y = Math.floor(tmp.y / sizeTY);
+            }
+            const an = Math.atan2(this.rays[i].dir.y, this.rays[i].dir.x) - Math.atan2(this.dir.y, this.dir.x);
+            const h = euclideanDistance(this.pos.x, this.pos.y, tmp.x, tmp.y) * Math.cos(an);
+            const cW = (c.width / 2) / this.rays.length;
+            const cH = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 512, 0);
+            c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "white");
+            c.line(this.pos.x, this.pos.y, tmp.x, tmp.y, "red");
         }
     }
 
     checkCollision() {
-        const x = Math.floor(this.pos.x/sizeTX);
-        const y = Math.floor(this.pos.y/sizeTY);
-        return map[y*sizeX+x] == 1 ? true : false;
+        const x = Math.floor(this.pos.x / sizeTX);
+        const y = Math.floor(this.pos.y / sizeTY);
+        return map[y * sizeX + x] == 1 ? true : false;
     }
 }

@@ -46,8 +46,8 @@ const sizeM = sizeX * sizeY;
 /**
  * @constant {number} sizeTX Die Breite einer Zelle
  */
-const sizeTX = (WIDTH / 2) / sizeX;
+const sizeTX = Math.round((WIDTH / 2) / sizeX);
 /**
  * @constant {number} sizeTY Die Höhe einer Zelle
  */
-const sizeTY = HEIGHT / sizeY;
+const sizeTY = Math.round(HEIGHT / sizeY);

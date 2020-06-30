@@ -251,9 +251,9 @@ class canvasClass {
      */
     fillArray1D(arr, breite, colorArray, w = Math.floor(canvas.width / breite), h = Math.floor(canvas.height / (arr.length / breite)), xOffset = 0, yOffset = 0) {
         let abstand = 0;
-        for (let y = 0; y < mapY; y++) {
-            for (let x = 0; x < mapX; x++) {
-                this.fillRect(x * w + abstand + xOffset, y * h + abstand + yOffset, w - abstand, h - abstand, colorArray[arr[y * breite + x]], abstand == 0 ? false : true);
+        for (let y = 0; y < sizeY; y++) {
+            for (let x = 0; x < sizeX; x++) {
+                this.fillRect(x * w + abstand + xOffset, y * h + abstand + yOffset, w - abstand, h - abstand, colorArray[arr[y * breite + x]],true);
             }
         }
     }

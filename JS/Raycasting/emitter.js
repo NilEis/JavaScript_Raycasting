@@ -59,7 +59,8 @@ class emitter {
             const h = euclideanDistance(this.pos.x, this.pos.y, tmp.x, tmp.y) * Math.cos(an);
             const cW = (c.width / 2) / this.rays.length;
             const cH = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 512, 0);
-            c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "white");
+            const r = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 255, 0);
+            c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb("+r+","+r+","+r+")");
             c.line(this.pos.x, this.pos.y, tmp.x, tmp.y, "red");
         }
     }

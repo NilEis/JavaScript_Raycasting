@@ -29,15 +29,17 @@ const map = [
     1, 0, 0, 0, 1, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 1, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 3, 0, 0, 0, 0, 0, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1
 ];
 
 
 const textureTable = [
+    new Image(),
     new Image()
 ];
 textureTable[0].src = "Textures/uvCheck.jpg";
+textureTable[1].src = "Textures/test1.png";
 
 const blockTable = [{
         id: 0,
@@ -53,6 +55,11 @@ const blockTable = [{
         id: 2,
         color: [255, 0, 0],
         texture: textureTable[0]
+    },
+    {
+        id: 3,
+        color: [0, 255, 0],
+        texture: textureTable[1]
     }
 ];
 /**

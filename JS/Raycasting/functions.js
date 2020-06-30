@@ -42,5 +42,5 @@ function buttons() {
 
 function drawMap() {
     c.fillRect(WIDTH / 2, HEIGHT / 2, WIDTH / 2, HEIGHT / 2, "grey");
-    c.fillArray1D(map, sizeX, ["black", "white", "red"], (c.width / 2) / sizeX, c.height / sizeY);
+    c.fillArray1D(map, sizeX, ["black", "white", "red","green"], (c.width / 2) / sizeX, c.height / sizeY);
 }

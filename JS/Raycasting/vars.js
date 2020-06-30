@@ -22,23 +22,47 @@ const FPS = 60;
  * @constant {number[]} map Das Spielfeld
  */
 const map = [
-    1, 1, 1, 1, 1, 1, 1, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 1, 0, 0, 1,
-    1, 0, 0, 0, 0, 1, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 1,
-    1, 1, 1, 1, 1, 1, 1, 1
+    1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 2, 0, 0, 0, 1,
+    1, 0, 0, 0, 1, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1
+];
+
+
+const textureTable = [
+    new Image()
+];
+textureTable[0].src = "Textures/uvCheck.jpg";
+
+const blockTable = [{
+        id: 0,
+        color: [0, 0, 0],
+        texture: null
+    },
+    {
+        id: 1,
+        color: [255, 255, 255],
+        texture: null
+    },
+    {
+        id: 2,
+        color: [255, 0, 0],
+        texture: textureTable[0]
+    }
 ];
 /**
  * @constant {number} sizeX Die Breite einer Reihe
  */
-const sizeX = 8;
+const sizeX = 9;
 /**
  * @constant {number} sizeY Die Höhe einer Spalte
  */
-const sizeY = 8;
+const sizeY = 9;
 /**
  * @constant {number} sizeM Die Gesamtgröße des Feldes
  */

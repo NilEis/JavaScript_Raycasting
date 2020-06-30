@@ -24,7 +24,7 @@ class emitter {
      */
     setRays() {
         this.rays = [];
-        for (let i = -this.fov / 2; i < this.fov / 2; i += 1) {
+        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.1) {
             this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
         }
     }
@@ -50,7 +50,7 @@ class emitter {
             let x = Math.floor(this.pos.x / sizeTX);
             let y = Math.floor(this.pos.y / sizeTY);
             let tmp = pPos.get();
-            for (let j = 1; map[y * sizeX + x] == 0; j++) {
+            for (let j = 1; map[y * sizeX + x] === 0; j++) {
                 tmp.add(rayPos);
                 x = Math.floor(tmp.x / sizeTX);
                 y = Math.floor(tmp.y / sizeTY);
@@ -59,8 +59,17 @@ class emitter {
             const h = euclideanDistance(this.pos.x, this.pos.y, tmp.x, tmp.y) * Math.cos(an);
             const cW = (c.width / 2) / this.rays.length;
             const cH = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 512, 0);
-            const r = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 255, 0);
-            c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb("+r+","+r+","+r+")");
+            const r = mapValue(h, 0, Math.sqrt(2 * (512 ** 2)), 1, 0);
+            if (blockTable[map[y * sizeX + x]].texture === null) {
+                c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb(" + blockTable[map[y * sizeX + x]].color[0] * r + "," + blockTable[map[y * sizeX + x]].color[1] * r + "," + blockTable[map[y * sizeX + x]].color[2] * r + ")");
+                c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb(" + blockTable[map[y * sizeX + x]].color[0] * r + "," + blockTable[map[y * sizeX + x]].color[1] * r + "," + blockTable[map[y * sizeX + x]].color[2] * r + ")");
+            } else {
+                const offsetX = tmp.x-x*sizeTX;
+                const offsetY = tmp.y-y*sizeTY;
+                const offset = mapValue(offsetX?offsetX:offsetY,0,sizeTX,0,1);
+                c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
+                c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
+            }
             c.line(this.pos.x, this.pos.y, tmp.x, tmp.y, "red");
         }
     }
@@ -68,6 +77,6 @@ class emitter {
     checkCollision() {
         const x = Math.floor(this.pos.x / sizeTX);
         const y = Math.floor(this.pos.y / sizeTY);
-        return map[y * sizeX + x] == 1 ? true : false;
+        return map[y * sizeX + x] == 0 ? false : true;
     }
 }

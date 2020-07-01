@@ -64,11 +64,11 @@ class emitter {
                 c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb(" + blockTable[map[y * sizeX + x]].color[0] * r + "," + blockTable[map[y * sizeX + x]].color[1] * r + "," + blockTable[map[y * sizeX + x]].color[2] * r + ")");
                 c.fillRect((c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH, "rgb(" + blockTable[map[y * sizeX + x]].color[0] * r + "," + blockTable[map[y * sizeX + x]].color[1] * r + "," + blockTable[map[y * sizeX + x]].color[2] * r + ")");
             } else {
-                const offsetX = tmp.x-x*sizeTX;
-                const offsetY = tmp.y-y*sizeTY;
-                const offset = mapValue(offsetX+offsetY,0,sizeTX,0,1);
-                c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
-                c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
+                const offsetX = tmp.x - x * sizeTX;
+                const offsetY = tmp.y - y * sizeTY;
+                const offset = mapValue(offsetX + offsetY, 0, sizeTX, 0, 1);
+                c.drawSprite(blockTable[map[y * sizeX + x]].texture, offset * blockTable[map[y * sizeX + x]].texture.width, 0, cW, blockTable[map[y * sizeX + x]].texture.height, (c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
+                c.drawSprite(blockTable[map[y * sizeX + x]].texture, offset * blockTable[map[y * sizeX + x]].texture.width, 0, cW, blockTable[map[y * sizeX + x]].texture.height, (c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
             }
             c.line(this.pos.x, this.pos.y, tmp.x, tmp.y, "red");
         }

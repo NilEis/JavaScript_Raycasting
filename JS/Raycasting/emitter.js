@@ -10,13 +10,14 @@ class emitter {
      * @param {number} y Die y-Startposition
      * @param {number} fov Das Sichtfeld in Grad
      */
-    constructor(x, y, fov) {
+    constructor(x, y, fov, rays) {
         this.pos = new vector2D(x, y);
         this.fov = fov;
         this.rays = [];
         this.o = 0;
         this.dir = vector2D.fromAngle(this.o);
         this.v = 5;
+        this.rI = rays;
     }
 
     /**
@@ -24,7 +25,8 @@ class emitter {
      */
     setRays() {
         this.rays = [];
-        for (let i = -this.fov / 2; i < this.fov / 2; i += 0.1) {
+        const add = this.fov/(WIDTH/2);
+        for (let i = -this.fov / 2; i < this.fov / 2; i += add) {
             this.rays.push(new ray(this.pos.x, this.pos.y, i + this.o));
         }
     }

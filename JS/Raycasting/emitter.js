@@ -66,7 +66,7 @@ class emitter {
             } else {
                 const offsetX = tmp.x-x*sizeTX;
                 const offsetY = tmp.y-y*sizeTY;
-                const offset = mapValue(offsetX?offsetX:offsetY,0,sizeTX,0,1);
+                const offset = mapValue(offsetX+offsetY,0,sizeTX,0,1);
                 c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
                 c.drawSprite(blockTable[map[y * sizeX + x]].texture,offset*blockTable[map[y * sizeX + x]].texture.width,0,cW,blockTable[map[y * sizeX + x]].texture.height,(c.width / 2) + i * cW, c.height / 2 - cH / 2, cW, cH);
             }
